@@ -2,274 +2,195 @@
 
 # 🌸 Happy National Girlfriend Day
 
-**An interactive kinetic-typography lyric piece — built with nothing but HTML, CSS and vanilla JavaScript.**
+**A little interactive gift, made from scratch.**
 
-Solve a heart-shaped jigsaw to begin. The heart detonates into a field of cherry
-blossoms, the blossoms part like a curtain, and a synchronised lyric video plays
-out on a single continuous canvas — before looping back to the puzzle.
+Put a heart back together, and it opens into something.
 
-[![No dependencies](https://img.shields.io/badge/dependencies-none-ff8fab?style=flat-square)](#)
-[![No build step](https://img.shields.io/badge/build_step-none-ffb3c6?style=flat-square)](#)
-[![Vanilla JS](https://img.shields.io/badge/vanilla-JS-c4141f?style=flat-square)](#)
-[![Responsive](https://img.shields.io/badge/mobile_%2B_desktop-fullscreen-ff8fab?style=flat-square)](#)
+<br>
+
+[![Made by rvldoputra](https://img.shields.io/badge/made_by-@rvldoputra-ff8fab?style=for-the-badge&logo=tiktok&logoColor=white)](https://www.tiktok.com/@rvldoputra)
+
+<br>
 
 </div>
 
 ---
 
-## ⚠️ Keep this repository private
+## 🎁 What is this?
 
-`song.mp3` and `october.md` are committed here, so a clone runs complete. They hold a
-**copyrighted recording and its lyrics** — safe in a private repository, because nothing
-is being distributed.
+A small web page that plays like a short film.
 
-**Before ever making this public,** untrack them first:
+It opens on a heart split into four puzzle pieces, scattered across the screen. Drag them
+together. When the last one clicks into place the heart glows, bursts into a few hundred
+cherry blossoms, and those blossoms sweep apart like a curtain — revealing a lyric video
+that plays out word by word, in time with the music.
 
-```bash
-git rm --cached song.mp3 october.md
-# then restore the two ignore lines in .gitignore
-```
+At the end, three photos land on the page and the camera walks between them before pulling
+back. Then the curtain closes and you can do the whole thing again.
 
-Publishing them would mean redistributing someone else's work under this repository's
-name, and a DMCA takedown removes the whole repo — not just the offending files.
-
-The engine is built to survive without them, so removing them breaks nothing:
-
-- No lyric file → falls back to neutral placeholder phrases
-- No audio → the master clock falls back to `performance.now()` and plays silently
+**There is nothing to install and nothing to sign up for.** It is one folder of files that
+runs in a browser.
 
 ---
 
-## ✨ What it does
+## ▶️ How to open it
+
+The page loads a lyric file while it runs, and browsers block that for files opened
+directly from your computer. So it needs to be *served* — which sounds technical but is
+one command.
+
+<details open>
+<summary><b>The simple way</b></summary>
+
+<br>
+
+If you have **Python** (most computers do), open a terminal in this folder and run:
+
+```bash
+python -m http.server 8000
+```
+
+Then open **<http://localhost:8000>** in your browser.
+
+</details>
+
+<details>
+<summary><b>If you have Node instead</b></summary>
+
+<br>
+
+```bash
+npx serve .
+```
+
+It will print a link — open that.
+
+</details>
+
+<details>
+<summary><b>Not sure what a terminal is?</b></summary>
+
+<br>
+
+Easiest route: drag this folder onto [netlify.com/drop](https://app.netlify.com/drop).
+It gives you a live link in a few seconds, no account needed.
+
+You can also open `index.html` directly — everything works except the real lyrics, which
+are replaced by placeholder text.
+
+</details>
+
+---
+
+## 🎮 What you can do
+
+| | |
+|---|---|
+| 🖱️ **Drag** | Move a puzzle piece |
+| 👆 **Click or tap** | Pause and resume |
+| ⌨️ <kbd>Space</kbd> | Pause and resume |
+| ⌨️ <kbd>R</kbd> | Start over |
+| ⛶ **Top-right button** | Fullscreen (desktop) |
+
+Works on a phone and on a desktop. Turn the sound on.
+
+> **Tip:** it loops forever — the curtain closes and the puzzle comes back, scattered
+> differently each time.
+
+---
+
+## 🔍 A few things worth noticing
 
 <table>
-<tr><td width="50%" valign="top">
+<tr><td width="33%" valign="top" align="center">
 
-### 🧩 The gate
-A heart cut into four interlocking jigsaw pieces, scattered at random. Drag each into
-its slot. Slots glow as a piece approaches; the rim flares white when it seats. Nothing
-can fail — a near miss shivers and waits.
+### 🧩
+**The puzzle is real**
 
-</td><td width="50%" valign="top">
+The four pieces have interlocking tabs that genuinely fit. Nothing snaps unless it is
+close enough, and you cannot get it wrong — a near miss just shivers and waits.
 
-### 💥 The detonation
-The seams dissolve, the heart compresses, then bursts into ~390 cherry blossoms on
-individual ballistic trajectories. The field breathes, then parts from the centre
-outward like a curtain.
+</td><td width="33%" valign="top" align="center">
 
-</td></tr>
-<tr><td width="50%" valign="top">
+### 🌸
+**~390 flowers**
 
-### 🎵 The lyric phase
-Each line is cued to a per-word timestamp. Words arrive one at a time, blurring into
-focus. An oversized "ghost" duplicate blooms behind the type and is clipped by the
-frame. A camera drifts and pushes with every phrase.
+Every blossom is thrown on its own arc, at its own speed, and drifts on its own slow
+loop once it lands. No two runs look the same.
 
-</td><td width="50%" valign="top">
+</td><td width="33%" valign="top" align="center">
 
-### 📸 The collage
-Three torn-paper photos land in sequence, each paired with a sung phrase that appears
-beside it on its own beat. The camera then visits each photo in turn before pulling
-back to reveal the whole arrangement.
+### 🎵
+**Word by word**
+
+Each word appears on the exact beat it is sung, letters cascading in one after another.
+The timing comes from the audio itself, so it never drifts.
 
 </td></tr>
 </table>
 
 ---
 
-## 🎮 Controls
+## 🛠️ Built with
 
-| Input | Action |
-|-------|--------|
-| **Drag** | Move a puzzle piece |
-| **Click / tap** | Play or pause (once the gate is open) |
-| <kbd>Space</kbd> | Play or pause |
-| <kbd>R</kbd> | Restart |
-| <kbd>Enter</kbd> | Place the focused piece (keyboard path) |
-| <kbd>Tab</kbd> | Cycle pieces and controls |
+Plain **HTML**, **CSS** and **JavaScript**. No frameworks, no build step, no libraries.
 
-Fully keyboard navigable, with a screen-reader path through the whole sequence.
-Honours `prefers-reduced-motion`: the burst is skipped and every phrase becomes a
-static fade.
-
----
-
-## 🚀 Running it
-
-`fetch()` is blocked on `file://` in Chrome and Edge, so the lyric file will not load
-by double-clicking. Serve the folder:
-
-```bash
-# Python
-python -m http.server 8000
-
-# Node
-npx serve .
-```
-
-Then open <http://localhost:8000>.
-
----
-
-## 🎨 Adding your own song
-
-**1. Drop in your audio** as `song.mp3`. The engine reads its real duration and
-retimes the whole piece automatically.
-
-**2. Write a lyric file** as `october.md`. One timestamp per word, blank lines
-separating phrases:
+Three files do everything:
 
 ```
-[00:00.46] Your
-[00:00.70] first
-[00:01.10] line
-
-[00:07.62] Your
-[00:08.02] second
-[00:08.82] line
+index.html    the structure
+styles.css    every colour, layout and animation
+app.js        the clock, the puzzle, the flowers, the camera
 ```
 
-Each blank-line block becomes one phrase — one full screen — and holds until the next
-is due. Classic single-stamp-per-line `.lrc` files work too; the parser detects which
-format you gave it.
-
-**3. Replace the photos** — `p1.jpeg`, `p2.jpeg`, `p3.jpeg`. Aim for **4:5 portrait**;
-anything else is centre-cropped. Adjust `CONFIG.PHOTO_FOCUS` to bias what survives
-the crop.
-
----
-
-## ⚙️ Configuration
-
-Every tunable value lives in one `CONFIG` object at the top of `app.js`.
+The only outside thing it uses is a Google font.
 
 <details>
-<summary><b>Timing</b></summary>
+<summary><b>For the curious — how it holds together</b></summary>
 
-| Key | Purpose |
-|-----|---------|
-| `PAUSE` `MERGE` `RADIATE` | Completion-sequence act durations |
-| `BURST` `HOLD` `CURTAIN` | Blossom explosion and curtain sweep |
-| `HOLD_GAP` | Gap between one phrase leaving and the next arriving |
-| `WORD_IN` `WORD_LEAD` | Per-word reveal timing |
+<br>
 
-⚠️ These are mirrored in `styles.css` animation durations. Change both together.
+**One clock.** Every animation reads its position from a single loop driven by the audio's
+own playback time. That is why the words never drift out of sync, even if the page stutters.
 
-</details>
+**No cuts.** From the first frame to the last, nothing is ever swapped out — every change
+is something moving in or out on the same canvas.
 
-<details>
-<summary><b>Blossoms</b></summary>
+**Edge to edge.** The composition holds a fixed shape and is scaled to fill whatever
+screen it lands on, so it never sits in a letterboxed box.
 
-| Key | Purpose |
-|-----|---------|
-| `PETAL_COUNT` / `_WIDE` | Whole flowers — portrait / landscape |
-| `PETAL_LOOSE` / `_WIDE` | Single drifting petals |
-| `PETAL_MIN` `PETAL_MAX` | Size range, in `cqw` |
-| `THROW_MIN` `THROW_MAX` | Launch distance, as a fraction of the long edge |
-
-Count is trimmed automatically on low-core devices via `PETAL_SCALE`.
-
-</details>
-
-<details>
-<summary><b>Camera</b></summary>
-
-| Key | Purpose |
-|-----|---------|
-| `CAM_MOVES` | Per-phrase travel: `x`, `y`, `r`, `z` |
-| `CAM_TOUR_ZOOM` | Framing zoom during the photo tour |
-| `CAM_TOUR_OUT` | Pull-back duration at the end |
-| `CAM_OVERSCAN` | **Must match** the `inset` on `#cam` in the stylesheet |
-
-</details>
-
-<details>
-<summary><b>Layout</b></summary>
-
-| Key | Purpose |
-|-----|---------|
-| `BOARD_W_DESKTOP` / `_TOUCH` | Puzzle size, in `vmin` |
-| `PHOTO_LAYOUT` / `_WIDE` | Collage arrangement — portrait / landscape |
-| `PHRASE_BREAK_WIDE` | Forced line breaks on wide screens |
+**Fast on purpose.** Nearly 400 flowers move at once, which normally would not be smooth.
+Each one is a single cached image rather than a live drawing, nothing uses an expensive
+filter, and all motion runs on the graphics card instead of the main thread.
 
 </details>
 
 ---
 
-## 🏗️ How it works
+## 💗 Credits
 
-### One master clock
-Every animation reads its progress from a single `requestAnimationFrame` loop driven by
-`audio.currentTime`, falling back to `performance.now()`. There are no scattered CSS
-`animation-delay`s in the lyric phase, so audio and visuals cannot drift apart.
+Photos from [Unsplash](https://unsplash.com). Type is
+[Playfair Display](https://fonts.google.com/specimen/Playfair+Display).
 
-### One continuous canvas
-There are no cuts. Every change is an element animating in or out on the same
-background — the composition never resets.
-
-### Cover, not contain
-The stage holds an exact 288:361 ratio and is scaled to **cover** the viewport, so it is
-edge-to-edge on every device. Portrait crops the sides; landscape crops top and bottom.
-Because the stage is larger than the screen, anything that must stay readable is capped
-against `--safe-w` rather than a stage percentage.
-
-### Performance
-The burst runs ~390 animated elements and holds a smooth frame:
-
-- **One node per flower.** Blossoms are pre-rendered background sprites, not live SVG
-  trees — six cached rasters at 1024px serve every element.
-- **Zero animated filters.** `drop-shadow` forces an offscreen pass per element per
-  frame; all depth is painted into the sprite instead.
-- **GPU compositing.** Every moving transform is 3D, so interpolation happens on the
-  compositor rather than the main thread.
-- **No `will-change`.** Promoting 390 permanent layers exhausts VRAM; a 3D transform
-  promotes only while animating.
+The music is not mine — it belongs to its artist, and it is here only so this gift plays
+the way it was meant to.
 
 ---
-
-## 📁 Structure
-
-```
-publish/
-├── index.html      structure only
-├── styles.css      design tokens, layout, all keyframes
-├── app.js          CONFIG, Timeline, parser, renderer
-├── p1–p3.jpeg      collage photos (Unsplash placeholders)
-├── song.mp3        audio — untrack before going public
-└── october.md      per-word lyric timings — same
-```
-
----
-
-## 🖼️ Credits
-
-Placeholder photos from [Unsplash](https://unsplash.com) — free for commercial and
-non-commercial use, no attribution required.
-
-Typeface: [Playfair Display](https://fonts.google.com/specimen/Playfair+Display)
-(SIL Open Font License), the only external dependency.
-
----
-
-## 📜 Copyright
-
-```
-Copyright © 2026 Revaldoo22. All rights reserved.
-```
-
-The **engine** — this layout, its motion design, the timing architecture, the LRC and
-per-word parser, the jigsaw generator, the torn-edge algorithm, the camera system and
-the blossom sprite pipeline — is original work.
-
-Reproduction, redistribution or reuse in whole or in part, without written permission,
-is not permitted.
-
-**Not covered by the above:** any audio or lyric file you add locally. Those remain the
-property of their respective rights holders and must not be published or redistributed.
 
 <div align="center">
 
----
+## 📜
+
+**© 2026 Revaldoo22**
+
+The page itself — the design, the animation, the puzzle, the code — is my own work.
+Please don't repost it as yours.
+
+<br>
+
+[![TikTok](https://img.shields.io/badge/say_hi-@rvldoputra-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://www.tiktok.com/@rvldoputra)
+
+<br>
 
 *Made with care, and a great deal of pink.*
 

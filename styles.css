@@ -173,18 +173,66 @@ body:not(.immersive) #fs .i-exit{ display:none; }
   bottom:max(10px, env(safe-area-inset-bottom));
   z-index:31;
   margin:0;
+
+  /* A real pill button — it is a link, so it should look tappable. */
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 11px;
+  border-radius:999px;
+  border:1px solid rgba(23,22,26,.10);
+  background:rgba(255,255,255,.55);
+  backdrop-filter:blur(6px);
+
   font-family:var(--serif);
   font-size:11px;
-  letter-spacing:.07em;
-  color:rgba(23,22,26,.30);
-  pointer-events:none;
+  letter-spacing:.06em;
+  color:rgba(23,22,26,.52);
+  text-decoration:none;
   user-select:none;
-  /* A hairline of paper behind it, so it stays legible if a dark photo or a
-     crimson heart drifts underneath. */
-  text-shadow:0 0 6px var(--paper), 0 0 2px var(--paper);
+  /* pointer-events stay ON: unlike the old <p>, this one must be clickable. */
+  transition:background .22s ease, color .22s ease,
+             border-color .22s ease, transform .22s ease;
 }
+#copyright svg{
+  width:12px; height:12px;
+  fill:currentColor;
+  flex:0 0 auto;
+  opacity:.85;
+}
+
+/* Warms toward the piece's own crimson on hover, so the credit feels part of
+   the work rather than bolted on. */
+#copyright:hover{
+  background:#fff;
+  color:var(--crimson);
+  border-color:rgba(196,20,31,.28);
+  transform:translateY(-1px);
+}
+#copyright:active{ transform:translateY(0); }
+#copyright:focus-visible{
+  outline:2px solid var(--crimson);
+  outline-offset:3px;
+  color:var(--crimson);
+}
+
 @media (min-width: 900px){
-  #copyright{ font-size:12px; right:16px; bottom:14px; }
+  #copyright{
+    font-size:12px;
+    right:16px; bottom:14px;
+    padding:7px 13px;
+  }
+  #copyright svg{ width:13px; height:13px; }
+}
+
+/* Touch: bigger tap target, and it clears the home indicator. */
+@media (pointer: coarse){
+  #copyright{ padding:8px 13px; min-height:32px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  #copyright{ transition:none; }
+  #copyright:hover{ transform:none; }
 }
 
 /* ────────────────────────────────────────────────────────────────────────
