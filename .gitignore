@@ -1,13 +1,19 @@
-# ── Media: deliberately never committed ─────────────────────────────────────
-# These are the recording and the lyrics of a copyrighted song. Publishing them
-# would mean redistributing someone else's work under this repository's name.
+# ── Media ───────────────────────────────────────────────────────────────────
+# song.mp3 and october.md ARE committed here.
 #
-# The engine is built to run without them: no lyric file falls back to
-# placeholder phrases, and no audio falls back to a silent performance.now()
-# clock. Add your own copies locally — see the README.
-song.mp3
-*.mp3
-october.md
+# They hold a copyrighted recording and its lyrics, so they were excluded while
+# this repository's visibility was unconfirmed. It is private — nothing is being
+# distributed publicly — so they are tracked, and a clone runs complete.
+#
+# IF THIS REPOSITORY IS EVER MADE PUBLIC, remove them from tracking first:
+#   git rm --cached song.mp3 october.md
+#   …then restore the two ignore lines below.
+# Publishing them would mean redistributing someone else's work under this
+# repository's name, and a DMCA takedown removes the whole repo, not just the
+# offending files.
+#
+# song.mp3
+# october.md
 
 # Local tooling
 .vercel/

@@ -17,22 +17,26 @@ out on a single continuous canvas — before looping back to the puzzle.
 
 ---
 
-## ⚠️ Read this first — media files are not included
+## ⚠️ Keep this repository private
 
-This repository ships the **engine**, not the media. Two files are deliberately absent:
+`song.mp3` and `october.md` are committed here, so a clone runs complete. They hold a
+**copyrighted recording and its lyrics** — safe in a private repository, because nothing
+is being distributed.
 
-| File | Why it is missing |
-|------|-------------------|
-| `song.mp3` | A copyrighted commercial recording |
-| `october.md` | The song's lyrics, with per-word timings |
+**Before ever making this public,** untrack them first:
 
-Publishing either would mean redistributing someone else's copyrighted work. **The piece
-still runs without them** — that is designed in, not a happy accident:
+```bash
+git rm --cached song.mp3 october.md
+# then restore the two ignore lines in .gitignore
+```
 
-- No lyric file → the engine falls back to neutral placeholder phrases
+Publishing them would mean redistributing someone else's work under this repository's
+name, and a DMCA takedown removes the whole repo — not just the offending files.
+
+The engine is built to survive without them, so removing them breaks nothing:
+
+- No lyric file → falls back to neutral placeholder phrases
 - No audio → the master clock falls back to `performance.now()` and plays silently
-
-To see it as intended, add your own two files locally. See [Adding your own song](#-adding-your-own-song).
 
 ---
 
@@ -231,8 +235,8 @@ publish/
 ├── styles.css      design tokens, layout, all keyframes
 ├── app.js          CONFIG, Timeline, parser, renderer
 ├── p1–p3.jpeg      collage photos (Unsplash placeholders)
-├── song.mp3        ← add your own
-└── october.md      ← add your own
+├── song.mp3        audio — untrack before going public
+└── october.md      per-word lyric timings — same
 ```
 
 ---
