@@ -1,6 +1,6 @@
 /* ════════════════════════════════════════════════════════════════════════
    Kinetic typography lyric piece — stylesheet
-   © 2026 Revaldoo22. All rights reserved.
+   © 2026 pmbdigital. All rights reserved.
 
    Original work. Reproduction, redistribution or reuse in whole or in part
    without written permission is not permitted.
@@ -154,6 +154,37 @@ body:not(.immersive) #fs .i-exit{ display:none; }
    already edge-to-edge, so nothing is lost by removing it. */
 @media (pointer: coarse){
   #fs{ display:none; }
+}
+
+/* ────────────────────────────────────────────────────────────────────────
+   COPYRIGHT — bottom-right, permanently visible.
+
+   Fixed to the viewport rather than the stage, so the covering stage cannot
+   push it off-screen. Sized in px and positioned against safe-area insets so
+   it clears a notch or home indicator on a phone.
+
+   Deliberately quiet: low contrast and small, present without competing with
+   the composition. It does NOT fade with the idle timer — a notice that
+   disappears is not much of a notice.
+   ──────────────────────────────────────────────────────────────────────── */
+#copyright{
+  position:fixed;
+  right:max(12px, env(safe-area-inset-right));
+  bottom:max(10px, env(safe-area-inset-bottom));
+  z-index:31;
+  margin:0;
+  font-family:var(--serif);
+  font-size:11px;
+  letter-spacing:.07em;
+  color:rgba(23,22,26,.30);
+  pointer-events:none;
+  user-select:none;
+  /* A hairline of paper behind it, so it stays legible if a dark photo or a
+     crimson heart drifts underneath. */
+  text-shadow:0 0 6px var(--paper), 0 0 2px var(--paper);
+}
+@media (min-width: 900px){
+  #copyright{ font-size:12px; right:16px; bottom:14px; }
 }
 
 /* ────────────────────────────────────────────────────────────────────────
