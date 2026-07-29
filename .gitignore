@@ -1,0 +1,16 @@
+# ── Media: deliberately never committed ─────────────────────────────────────
+# These are the recording and the lyrics of a copyrighted song. Publishing them
+# would mean redistributing someone else's work under this repository's name.
+#
+# The engine is built to run without them: no lyric file falls back to
+# placeholder phrases, and no audio falls back to a silent performance.now()
+# clock. Add your own copies locally — see the README.
+song.mp3
+*.mp3
+october.md
+
+# Local tooling
+.vercel/
+.DS_Store
+Thumbs.db
+node_modules/

@@ -1,0 +1,125 @@
+<!doctype html>
+<!--
+  ══════════════════════════════════════════════════════════════════════════
+  Kinetic typography lyric piece
+  © 2026 Revaldoo22. All rights reserved.
+
+  This layout, its motion design, timing engine and styling are original
+  work. Reproduction, redistribution or reuse in whole or in part without
+  written permission is not permitted.
+
+  NOTE ON MEDIA: song.mp3 and october.md contain third-party copyrighted
+  material and are NOT covered by the above. They are referenced for private
+  personal use only and must not be published or redistributed.
+  ══════════════════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Revaldoo22">
+<meta name="copyright" content="© 2026 Revaldoo22. All rights reserved.">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kinetic Lyric — 21.04s</title>
+
+<!-- Web fonts are the only external dependency. If offline, the local serif stack takes over. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Shell centers the stage and reserves room for the control bar on mobile. -->
+<div id="shell">
+
+  <main id="stage" role="application" aria-label="Kinetic typography lyric video">
+    <!-- Camera wrapper: one composited transform drives all layers. -->
+    <div id="cam">
+      <div class="layer bg"></div>
+      <div class="layer grid"   id="grid"></div>
+      <div class="layer ghost"  id="ghost"  aria-hidden="true"></div>
+      <div class="layer photos" id="photos" aria-hidden="true"></div>
+      <div class="layer lyric"  id="lyric"></div>
+      <div class="layer deco"   id="deco"   aria-hidden="true"></div>
+      <!-- Hearts that pass in FRONT of the words, for depth. -->
+      <div class="layer deco deco-front" id="deco-front" aria-hidden="true"></div>
+    </div>
+
+    <!-- ── Gate ────────────────────────────────────────────────────────────
+         A heart broken into four jigsaw pieces. Drag each into its slot on
+         the board to begin. Pieces and slots are generated in JS so the
+         interlocking tabs on adjoining edges always match exactly.
+
+         This is a ritual, not a lock: #play is a real, focusable control so
+         keyboard and assistive-tech users have an equivalent way through.
+         ──────────────────────────────────────────────────────────────── -->
+    <div id="veil">
+      <div id="gate">
+        <!-- The greeting. Present from the start, above everything else —
+             it is the welcome, not the reward for solving the puzzle. -->
+        <p id="gate-greet" aria-live="polite">
+          <span class="greet-small">happy</span>
+          <span class="greet-big">National Girlfriend Day</span>
+        </p>
+
+        <p id="gate-line">put us back together</p>
+
+        <div id="gate-field">
+          <!-- Board: four outlined slots, filled by JS. -->
+          <div id="board" aria-hidden="true"></div>
+          <!-- Loose pieces, scattered by JS. -->
+          <div id="pieces"></div>
+          <!-- Bloom and shockwave ring, fired once the heart is whole. -->
+          <div id="gate-flash" aria-hidden="true"></div>
+          <div id="gate-ring" aria-hidden="true"></div>
+        </div>
+
+        <p id="gate-hint">drag each piece into place</p>
+
+        <!-- Accessible equivalent. Visually hidden until focused. -->
+        <button id="play" type="button">begin</button>
+      </div>
+
+      <!-- ── Blossom burst ─────────────────────────────────────────────────
+           Fills the whole veil, above the gate. Flowers are generated in JS
+           and thrown outward from the heart, then gather into two curtain
+           panels that part to reveal the piece.
+           ──────────────────────────────────────────────────────────────── -->
+      <div id="petals" aria-hidden="true"></div>
+      <div id="curtain" aria-hidden="true">
+        <div class="curtain-half" id="curtain-l"></div>
+        <div class="curtain-half" id="curtain-r"></div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Screen-reader-only controls. No visible chrome: the stage itself is
+       the play/pause target, and R restarts. Keeping real buttons here means
+       the piece stays keyboard- and AT-accessible without any visual UI. -->
+  <div class="sr-controls">
+    <button id="toggle" type="button" aria-label="Play or pause" aria-pressed="false"></button>
+    <button id="restart" type="button" aria-label="Restart from the beginning"></button>
+  </div>
+
+  <p class="sr" aria-live="polite" id="status"></p>
+</div>
+
+<button id="fs" type="button" aria-label="Toggle fullscreen" aria-pressed="false">
+  <svg class="i-enter" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M4 9V4h5v2H6v3H4zm11-5h5v5h-2V6h-3V4zM4 15h2v3h3v2H4v-5zm14 0h2v5h-5v-2h3v-3z"/>
+  </svg>
+  <svg class="i-exit" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M9 4v5H4V7h3V4h2zm6 0h2v3h3v2h-5V4zM4 15h5v5H7v-3H4v-2zm11 5v-5h5v2h-3v3h-2z"/>
+  </svg>
+</button>
+
+<audio id="audio" preload="auto" playsinline></audio>
+<div id="scrub" class="sr" role="progressbar" aria-label="Playback progress"
+     aria-valuemin="0" aria-valuemax="28.19" aria-valuenow="0"><span id="scrub-fill"></span><span id="time"></span></div>
+
+<script src="app.js"></script>
+</body>
+</html>
